@@ -19,3 +19,14 @@ stages:
       - artifacts/raw_local_dir/data.csv
     outs:
       - artifacts/data_preprocessing_dir/data_preprocessing.csv
+
+  data_selection:
+    cmd: python src/stage_03_feature_selection.py
+    deps:
+      - src/stage_03_feature_selection.py
+      - src/utils/all_utils.py
+      - config/config.yaml
+      - params.yaml
+      - artifacts/data_preprocessing_dir/data_preprocessing.csv
+    outs:
+      - artifacts/data_selection_dir/data_final.csv

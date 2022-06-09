@@ -4,8 +4,8 @@ stages:
     cmd: python src/stage_01_load_save.py
     deps:
     - path: config/config.yaml
-      md5: a3339e686b271ae0298d083babcb87a0
-      size: 205
+      md5: 1feff67137954396aff8da94d9191a7f
+      size: 288
     - path: src/stage_01_load_save.py
       md5: ab3b13cc0e11c78bfa4a2a967e480fbd
       size: 1019
@@ -26,8 +26,8 @@ stages:
       md5: 80ccab65fb115cbad143dbbd2bcd5577
       size: 460676
     - path: config/config.yaml
-      md5: a3339e686b271ae0298d083babcb87a0
-      size: 205
+      md5: 1feff67137954396aff8da94d9191a7f
+      size: 288
     - path: src/stage_02_data_preprocessing.py
       md5: 06319f65b7aee2650f79dfa312f69159
       size: 2909
@@ -38,3 +38,28 @@ stages:
     - path: artifacts/data_preprocessing_dir/data_preprocessing.csv
       md5: 577fb372bbcc93ab5aafac882b5592c2
       size: 293787
+  data_selection:
+    cmd: python src/stage_03_feature_selection.py
+    deps:
+    - path: artifacts/data_preprocessing_dir/data_preprocessing.csv
+      md5: 577fb372bbcc93ab5aafac882b5592c2
+      size: 293787
+    - path: artifacts/raw_local_dir/data.csv
+      md5: 80ccab65fb115cbad143dbbd2bcd5577
+      size: 460676
+    - path: config/config.yaml
+      md5: 1feff67137954396aff8da94d9191a7f
+      size: 288
+    - path: params.yaml
+      md5: 0fef9ca2d52e3e88432f036f22606c48
+      size: 144
+    - path: src/stage_03_feature_selection.py
+      md5: 8b1ce1709180f18b5770ceb2b864d367
+      size: 3066
+    - path: src/utils/all_utils.py
+      md5: db4a59e540801c31b6343b3623b35d3e
+      size: 515
+    outs:
+    - path: artifacts/data_selection_dir/data_final.csv
+      md5: ba0952dcaf0d4fe1d291c4d781b23d1a
+      size: 1240510

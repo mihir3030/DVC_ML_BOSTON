@@ -6,3 +6,6 @@ artifacts:
   
   data_preprocessing_dir: data_preprocessing_dir
   data_preprocessing_file: data_preprocessing.csv
+
+  data_selection_dir: data_selection_dir
+  data_selection_file: data_final.csv
