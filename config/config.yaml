@@ -4,3 +4,5 @@ artifacts:
   raw_local_dir: raw_local_dir
   raw_local_file: data.csv
   
+  data_preprocessing_dir: data_preprocessing_dir
+  data_preprocessing_file: data_preprocessing.csv

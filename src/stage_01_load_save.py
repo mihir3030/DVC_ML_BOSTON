@@ -1,18 +1,11 @@
 from src.utils.all_utils import read_yaml, create_directory
 import os
 import argparse
-from sklearn.datasets import load_boston
 import pandas as pd
-
+import shutil
 
 def get_data(config_path):
     config = read_yaml(config_path)
-
-    dataset = load_boston()
-    data = pd.DataFrame(dataset.data, columns=dataset.feature_names)
-    target = pd.Series(dataset.target, name="TARGET")
-
-    df = pd.concat([data, target], axis= 1 )
 
     # save data to local directory
     artifacts_dir = config['artifacts']['artifacts_dir']
@@ -28,8 +21,10 @@ def get_data(config_path):
 
     raw_local_file_path = os.path.join(raw_local_dir_path, raw_local_file)
     
-    df.to_csv(raw_local_file_path, sep=",", index=False)
-
+    
+    original_data_path = "train.csv"
+    
+    shutil.copy(original_data_path, raw_local_file_path)
 
 
 if __name__ == '__main__':

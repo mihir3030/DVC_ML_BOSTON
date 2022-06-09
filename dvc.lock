@@ -4,15 +4,37 @@ stages:
     cmd: python src/stage_01_load_save.py
     deps:
     - path: config/config.yaml
-      md5: 2278dc94c8796beb611c9338cb772fd9
-      size: 104
+      md5: a3339e686b271ae0298d083babcb87a0
+      size: 205
     - path: src/stage_01_load_save.py
-      md5: aa27b1c53bb2de124f929f368f605087
-      size: 1204
+      md5: ab3b13cc0e11c78bfa4a2a967e480fbd
+      size: 1019
     - path: src/utils/all_utils.py
-      md5: 8f0f030feb80a0418931abdb106b6355
-      size: 366
+      md5: db4a59e540801c31b6343b3623b35d3e
+      size: 515
+    - path: train.csv
+      md5: 80ccab65fb115cbad143dbbd2bcd5577
+      size: 460676
     outs:
     - path: artifacts/raw_local_dir/data.csv
-      md5: 8ca8328a894f7a9ac5a1565ea1724fda
-      size: 39678
+      md5: 80ccab65fb115cbad143dbbd2bcd5577
+      size: 460676
+  data_preprocessing:
+    cmd: python src/stage_02_data_preprocessing.py
+    deps:
+    - path: artifacts/raw_local_dir/data.csv
+      md5: 80ccab65fb115cbad143dbbd2bcd5577
+      size: 460676
+    - path: config/config.yaml
+      md5: a3339e686b271ae0298d083babcb87a0
+      size: 205
+    - path: src/stage_02_data_preprocessing.py
+      md5: 06319f65b7aee2650f79dfa312f69159
+      size: 2909
+    - path: src/utils/all_utils.py
+      md5: db4a59e540801c31b6343b3623b35d3e
+      size: 515
+    outs:
+    - path: artifacts/data_preprocessing_dir/data_preprocessing.csv
+      md5: 577fb372bbcc93ab5aafac882b5592c2
+      size: 293787
